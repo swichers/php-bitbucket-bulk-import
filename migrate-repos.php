@@ -15,11 +15,14 @@ $env->required([
     'ORIGIN_BASE',
   ])->notEmpty();
 
+$env->required(['DEFAULT_LANG']);
+
 define('CSV_FILE', getenv('CSV_FILE'));
 define('USERNAME', getenv('USERNAME'));
 define('PASSWORD', getenv('PASSWORD'));
 define('OWNER_ID', getenv('OWNER_ID'));
 define('ORIGIN_BASE', getenv('ORIGIN_BASE'));
+define('DEFAULT_LANG', getenv('DEFAULT_LANG'));
 define('BITBUCKET_BASE', 'https://bitbucket.org');
 define('BITBUCKET_IMPORT', 'https://bitbucket.org/repo/import');
 
@@ -43,7 +46,7 @@ $default_data = [
   'no_forks' => FALSE,
   'no_public_forks' => TRUE,
   'has_wiki' => FALSE,
-  'language' => 'php',
+  'language' => DEFAULT_LANG,
 ];
 
 // Pull repository information out of a CSV file.
@@ -59,7 +62,8 @@ $get_repos = function ($fn) {
       'name' => $line[1],
       'wiki' => $line[5],
       'new_name' => $line[6],
-      'description' => $line[7],
+      'language' => $line[7],
+      'description' => $line[8],
     ];
   }
 
@@ -99,6 +103,7 @@ foreach ($repos as $info) {
     'name' => empty($info['new_name']) ? $info['name'] : $info['new_name'],
     'description' => $info['description'],
     'has_wiki' => !empty($info['wiki']),
+    'language' => !empty($info['language']) ? $info['language'] : DEFAULT_LANG,
   ];
   $data = array_merge($default_data, $repo_data);
 
