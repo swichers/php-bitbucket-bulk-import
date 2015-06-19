@@ -55,7 +55,7 @@ $get_repos = function ($fn) {
   $repos = [];
   $fh = fopen($fn, 'r');
 
-  while ($line = fgetcsv($fh)) {
+  while ($fh && $line = fgetcsv($fh)) {
 
     $repos[] = [
       'path' => $line[0],
