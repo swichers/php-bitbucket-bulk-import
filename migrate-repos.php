@@ -60,10 +60,10 @@ $get_repos = function ($fn) {
     $repos[] = [
       'path' => $line[0],
       'name' => $line[1],
-      'wiki' => $line[5],
-      'new_name' => $line[6],
-      'language' => $line[7],
-      'description' => $line[8],
+      'wiki' => $line[4],
+      'new_name' => $line[5],
+      'language' => $line[6],
+      'description' => $line[7],
     ];
   }
 

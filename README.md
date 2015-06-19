@@ -14,7 +14,7 @@ for what is required.
 
 Second you must have a CSV file with the following column types, in order:
 
-`"Repo path","Project name","Project path","Namespace Path","Project ID","Wiki","New name","Language","Description"`
+`"Repo path","Project name","Project path","Namespace Path","Wiki","New name","Language","Description"`
 
 The column names do not matter. Alternatively you can modify the `$get_repos`
 function to suit your data format (recommended).
