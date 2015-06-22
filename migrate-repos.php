@@ -2,6 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set("auto_detect_line_endings", true);
 
 require 'vendor/autoload.php';
 
