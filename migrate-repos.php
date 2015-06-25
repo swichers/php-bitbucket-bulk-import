@@ -114,7 +114,6 @@ foreach ($repos as $info) {
   if ($resp->getStatusCode() != 200) {
 
     printf("Error importing project (Response: %d)\n", $resp->getStatusCode());
-    return;
   }
 }
 
